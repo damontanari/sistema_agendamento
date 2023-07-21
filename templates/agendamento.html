@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agendamento de Serviço</title>
+</head>
+<body>
+    <h1>Agendamento de Serviço</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST" action="{{ url_for('agendar') }}">
+        <label for="data">Data do Agendamento:</label>
+        <input type="date" name="data" required>
+        <br>
+        <label>Serviços:</label>
+        <br>
+        <input type="checkbox" name="servicos" value="Corte">Corte
+        <br>
+        <input type="checkbox" name="servicos" value="Coloração">Coloração
+        <br>
+        <input type="checkbox" name="servicos" value="Manicure">Manicure
+        <br>
+        <input type="submit" value="Agendar">
+    </form>
+    <br>
+    <a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>

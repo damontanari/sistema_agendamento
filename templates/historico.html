@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Histórico de Agendamentos</title>
+</head>
+<body>
+    <h1>Histórico de Agendamentos</h1>
+    <ul>
+        {% for agendamento in agendamentos_semana %}
+            <li>{{ agendamento.data.strftime('%d/%m/%Y') }} - {{ ', '.join(agendamento.servicos) }}</li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Voltar</a>
+</body>
+</html>
